@@ -4,6 +4,10 @@ public abstract class Action {
 	String description;
 	int damage;
 	
+	//esta variable muestra si una accion implica un cambio de estado,
+	// y si lo implica, cuál.
+	String stateChange;
+	
 	// este booleano sirve para saber si la accion a realizar
 	//incrementa con fuerza o con poder
 	boolean isForce;
@@ -16,6 +20,10 @@ public abstract class Action {
 	public String getDescription()
 	{
 		return description;
+	}
+	public String getState()
+	{
+		return stateChange;
 	}
 	public int getDamage()
 	{
@@ -37,4 +45,5 @@ public abstract class Action {
 	{
 		return isCura;
 	}
+	
 }

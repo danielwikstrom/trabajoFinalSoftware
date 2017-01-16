@@ -1,7 +1,10 @@
 package subClases;
 
 import Clases.Shooter;
-import Clases.Warrior;
+import State.Dormido;
+import State.Evasivo;
+import State.Normal;
+import State.Quemado;
 
 public class OceanShooter extends Shooter{
 	public OceanShooter(int vidaE, int fuerzaE, int poderE, int defensaE, int resistenciaE){
@@ -11,9 +14,21 @@ public class OceanShooter extends Shooter{
 		poder = poderE+OceanShooter.poderGen;
 		defensa = defensaE+OceanShooter.defensaGen;
 		resistencia = resistenciaE+OceanShooter.resistenciaGen;
-		
+		clase="Tirador";
+
 		System.out.println("Su proximo enemigo es un tirador del desierto! ");
 		System.out.println("Sus estadisticas son las siguientes: ");
 		
+		dormido= new Dormido(this);
+		quemado= new Quemado(this);
+		evasivo = new Evasivo(this);
+		normal= new Normal(this);
+		
+		state= normal;
+		
+		isNormal=true;
+		isQuemado=false;
+		isDormido=false;
+		isEvasivo=false;
 	}
 }

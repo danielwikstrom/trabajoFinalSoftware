@@ -1,10 +1,6 @@
 package Factory;
 
-import Clases.Assassin;
-import Clases.Bomber;
-import Clases.Mage;
-import Clases.Shooter;
-import Clases.Warrior;
+
 import Personajes.Enemigo;
 
 public class EnemyGenerator {

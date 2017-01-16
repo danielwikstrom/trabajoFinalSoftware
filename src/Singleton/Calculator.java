@@ -24,19 +24,46 @@ public class Calculator {
 	
 	public void CalculateOutcome(Action action, Avatar origen, Avatar destino)
 	{
+		System.out.println("usó " + action.getDescription());
+		//si el avatar origen está dormido no realizará ninguna acción
+		//excepto la habilidad "vacuna" del asesino, que se cura de todos los estados
+		if(action.getState().equals("Normal"))
+			origen.Normal();
+		if(!origen.isDormido)
+		{
+			Random rng= new Random();
+			int dar=rng.nextInt(1);
+			if(action.getState().equals("Avoid"))
+				origen.Evadir();
+				
+			
+			//si el avatar destino está en estado evasivo tiene un 50%
+			// de posiblidades de esquivar el ataque
+			if(destino.isEvasivo && dar==1 || !destino.isEvasivo)
+			{
+		
+		if(action.getState().equals("Burn"))
+			destino.Quemar();
+		if(action.getState().equals("Sleep"))
+			destino.Dormir();
 		
 		int crit=0;
-		Random rng= new Random();
-		System.out.println();
+		
+		
+		//si la acción es agresiva se pasa a calcular su daño
+		// si es defensiva, se hace el efecto de la accion, que puede ser o curarse 
+		//o pasar a otro estado
 		if(action.getIsAttack())
 		{
-		crit=rng.nextInt(4);System.out.println("daño original de la accion: "+ action.getDamage());
-		if(crit==2)//hay un 20% de posibilidades de hacer critico
+		//hay un 20% de posibilidades de hacer critico
+		crit=rng.nextInt(4);
+		
+		if(crit==0)
 		{
 			action= new Critic(action);
-			
+			System.out.println(action.getDescription());
 			}
-		System.out.println("usó " + action.getDescription());
+		
 		int dano=0;
 		boolean isFuerza;
 		int vidaActual=destino.getVidaActual();
@@ -51,14 +78,23 @@ public class Calculator {
 		}
 		if(dano<0)
 			dano=0;
-		System.out.println("danio hecho: "+ dano);
+		System.out.println("Hizo "+ dano +" daño");
 		vidaActual= vidaActual-dano;
 		destino.setVidaActual(vidaActual);
 		}
-		else 
-		{
-			System.out.println("usó " + action.getDescription());
-			if(action.getIsCura())
+		
+			
+			
+		
+		
+		}
+			else if(destino.isEvasivo && dar==0 && action.getIsAttack())
+			{
+				System.out.println("pero el ataque fue esquivado!");
+			}
+			
+			// las curas se hacen sobre si mismo asi que no pueden ser esquivadas
+		if(action.getIsCura())
 			{
 				int poderCurativo=20;
 				int vidaActual=origen.getVidaActual();
@@ -67,12 +103,13 @@ public class Calculator {
 					origen.setVidaActual(origen.getVida());
 				else
 					origen.setVidaActual(vidaActual);
-			System.out.println("se ha curado " + poderCurativo);
+				System.out.println("se ha curado " + poderCurativo);
 			}
-			else 
-				System.out.println("no tuvo efecto....");
-		}
-			
+		}		
+		else
+			System.out.println("pero estando dormido no pudo usar ninguna habilidad");
+		
+		
 	}
 
 }

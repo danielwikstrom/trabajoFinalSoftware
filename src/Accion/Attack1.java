@@ -5,7 +5,8 @@ public class Attack1 extends Action{
 		if (clase.equals("Guerrero")) 
 		{
 			description = "Ataque con maza";
-			damage= 20;
+			stateChange="none";
+			damage= 25;
 			isForce=true;
 			isAttack=true;
 		}
@@ -13,6 +14,7 @@ public class Attack1 extends Action{
 		if (clase.equals("Mago")) 
 		{
 			description = "Rayo de luz";
+			stateChange="Burn";
 			damage= 30;
 			isForce=false;
 			isAttack=true;
@@ -20,14 +22,16 @@ public class Attack1 extends Action{
 		if (clase.equals("Bombardero")) 
 		{
 			description = "Granada";
-			damage= 35;
+			stateChange="none";
+			damage= 30;
 			isForce=false;
 			isAttack=true;
 		}
 		if (clase.equals("Asesino")) 
 		{
 			description = "Ataque Sigiloso";
-			damage= 30;
+			stateChange="none";
+			damage= 35;
 			isForce=true;
 			isAttack=true;
 
@@ -36,6 +40,7 @@ public class Attack1 extends Action{
 		{
 			description = "Doble disparo";
 			damage= 30;
+			stateChange="none";
 			isForce=true;
 			isAttack=true;
 

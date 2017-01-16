@@ -5,6 +5,7 @@ public class Attack2 extends Action{
 		if (clase.equals("Guerrero")) 
 		{
 			description = "Placaje con escudo";
+			stateChange="none";
 			damage= 10;
 			isForce=true;
 			isAttack=true;
@@ -13,6 +14,7 @@ public class Attack2 extends Action{
 		if (clase.equals("Mago")) 
 		{
 			description = "Hypnosis";
+			stateChange="Sleep";
 			damage= 20;
 			isForce=false;
 			isAttack=true;
@@ -21,6 +23,7 @@ public class Attack2 extends Action{
 		if (clase.equals("Bombardero")) 
 		{
 			description = "LanzaMisiles";
+			stateChange="Burn";
 			damage= 25;
 			isForce=true;
 			isAttack=true;
@@ -28,8 +31,9 @@ public class Attack2 extends Action{
 		}
 		if (clase.equals("Asesino")) 
 		{
-			description = "Lanzar cuchillo";
-			damage= 35;
+			description = "Cuchillo impregnado en cloroformo";
+			stateChange="Sleep";
+			damage= 30;
 			isForce=true;
 			isAttack=true;
 
@@ -38,6 +42,7 @@ public class Attack2 extends Action{
 		{
 			description = "Flecha explosiva";
 			damage= 25;
+			stateChange="Burn";
 			isForce=false;
 			isAttack=true;
 
