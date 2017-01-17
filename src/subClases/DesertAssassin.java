@@ -17,9 +17,9 @@ public class DesertAssassin extends Assassin{
 		resistencia = resistenciaE+Assassin.resistenciaGen;
 		clase="Asesino";
 		
-		System.out.println("Su proximo enemigo es un asesino del desierto! ");
+		System.out.println("Su próximo enemigo es un asesino del desierto! ");
 		setStrategy(new Agresivo());
-		System.out.println("Sus estadisticas son las siguientes: ");
+		System.out.println("Sus estadísticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
 		quemado= new Quemado(this);

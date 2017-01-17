@@ -2,7 +2,7 @@ package Escenarios;
 
 import Clases.*;
 import Factory.EnemyFactory;
-import Personajes.Enemigo;
+import Personajes.Avatar;
 import subClases.*;
 
 public class SpaceFact implements EnemyFactory{
@@ -13,38 +13,33 @@ public class SpaceFact implements EnemyFactory{
 	int defensa=3;
 	int resistencia=3;
 	
-	public Enemigo createMage() {
+	public Avatar createMage() {
 		Mage enemy= new SpaceMage(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Space Mage Created");
 		return enemy;
 	
 	}
 
 	
-	public Enemigo createWarrior() {
+	public Avatar createWarrior() {
 		Warrior enemy= new SpaceWarrior(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Space Warrior Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createBomber() {
+	public Avatar createBomber() {
 		Bomber enemy= new SpaceBomber(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Space Bomber Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createAssassin() {
+	public Avatar createAssassin() {
 		Assassin enemy= new SpaceAssassin(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Space Assassin Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createShooter() {
+	public Avatar createShooter() {
 		Shooter enemy= new SpaceShooter(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Space Shooter Created");
 		return enemy;
 	}
 

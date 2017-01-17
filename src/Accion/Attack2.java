@@ -6,7 +6,7 @@ public class Attack2 extends Action{
 		{
 			description = "Placaje con escudo";
 			stateChange="none";
-			damage= 10;
+			damage= 20;
 			isForce=true;
 			isAttack=true;
 		}

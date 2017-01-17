@@ -12,14 +12,14 @@ public class Defense2 extends Action{
 		
 		if (clase.equals("Mago")) 
 		{
-			description = "Fuente de la vida";
+			description = "Fuente de la Vida";
 			stateChange="none";
 			isAttack=false;
 			isCura=true;
 		}
 		if (clase.equals("Bombardero")) 
 		{
-			description = "Bocata de tortilla";
+			description = "Pizza estilo New York";
 			stateChange="none";
 			isAttack=false;
 			isCura=true;

@@ -17,9 +17,9 @@ public class SpaceMage extends Mage{
 		resistencia = resistenciaE+Mage.resistenciaGen;
 		clase="Mago";
 
-		System.out.println("Su proximo enemigo es un mago del Espacio! ");
+		System.out.println("Su próximo enemigo es un mago del Espacio! ");
 		setStrategy(new Defensivo());
-		System.out.println("Sus estadisticas son las siguientes: ");
+		System.out.println("Sus estadísticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
 		quemado= new Quemado(this);

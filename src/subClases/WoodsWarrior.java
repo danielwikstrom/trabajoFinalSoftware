@@ -17,9 +17,9 @@ public class WoodsWarrior extends Warrior{
 		resistencia = resistenciaE+Warrior.resistenciaGen;
 		clase="Guerrero";
 
-		System.out.println("Su proximo enemigo es un guerrero del Bosque! ");
+		System.out.println("Su próximo enemigo es un guerrero del Bosque! ");
 		setStrategy(new Defensivo());
-		System.out.println("Sus estadisticas son las siguientes: ");
+		System.out.println("Sus estadísticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
 		quemado= new Quemado(this);

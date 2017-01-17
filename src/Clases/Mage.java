@@ -1,8 +1,10 @@
 package Clases;
 
-import Personajes.Enemigo;
+import Personajes.Avatar;
 
-public abstract class Mage extends Enemigo{
+public abstract class Mage extends Avatar{
+	//Clase de la que heredan los enemigos de tipo Mago
+	
 	//los ints de tipo "Gen" son los generales para todos los enemigos 
 		//de esta clase
 	protected static int vidaGen=65;

@@ -2,7 +2,7 @@ package Personajes;
 import State.*;
 
 public class Personaje extends Avatar{
-
+//Clase del jugador, hereda de Avatar
 	
 	
 

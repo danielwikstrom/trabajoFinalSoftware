@@ -21,7 +21,7 @@ public class Normal implements Estado{
 	public void Sleep() {
 		System.out.println("Ha dormido al contrincante como si fuese un bebé...");
 		System.out.println("... y es tan inútil como uno.");
-		System.out.println("no podrá combatir hasta que despierte!");
+		System.out.println("No podrá combatir hasta que despierte!");
 		avatar.setEstado(avatar.getDormido());
 		avatar.isNormal=false;
 		avatar.isQuemado=false;

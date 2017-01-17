@@ -2,7 +2,7 @@ package Strategy;
 
 import java.util.Random;
 
-public class Defensivo implements Strategy{
+public class Defensivo extends Strategy{
 	public Defensivo()
 	{
 		System.out.println("Enemigo creado con estrategia Defensiva!");

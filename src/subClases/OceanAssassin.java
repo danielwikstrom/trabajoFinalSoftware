@@ -16,9 +16,9 @@ public class OceanAssassin extends Assassin{
 		defensa = defensaE+Assassin.defensaGen;
 		resistencia = resistenciaE+Assassin.resistenciaGen;
 		clase="Asesino";
-		System.out.println("Su proximo enemigo es un asesino del Oceano! ");
+		System.out.println("Su próximo enemigo es un asesino del Oceano! ");
 		setStrategy(new Agresivo());
-		System.out.println("Sus estadisticas son las siguientes: ");
+		System.out.println("Sus estadísticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
 		quemado= new Quemado(this);

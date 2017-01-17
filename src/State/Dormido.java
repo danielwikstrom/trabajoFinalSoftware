@@ -10,19 +10,19 @@ public class Dormido implements Estado{
 	}
 	
 	public void Burn() {
-		System.out.println("por razones científicas no puede arder mientras duerme");
+		System.out.println("Por razones científicas no puede arder mientras duerme");
 		
 	}
 
 	
 	public void Sleep() {
-		System.out.println("ya estaba dormido!");
+		System.out.println("Ya estaba dormido!");
 		
 	}
 
 	
 	public void Avoid() {
-		System.out.println("está dormido, no puede esquivar nada...");
+		System.out.println("Está dormido, no puede esquivar nada...");
 		
 	}
 

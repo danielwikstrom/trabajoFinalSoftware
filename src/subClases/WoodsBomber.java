@@ -16,9 +16,9 @@ public class WoodsBomber extends Bomber{
 		defensa = defensaE+Bomber.defensaGen;
 		resistencia = resistenciaE+Bomber.resistenciaGen;
 		clase="Bombardero";
-		System.out.println("Su proximo enemigo es un bombardero del Bosque! ");
+		System.out.println("Su próximo enemigo es un bombardero del Bosque! ");
 		setStrategy(new Defensivo());
-		System.out.println("Sus estadisticas son las siguientes: ");
+		System.out.println("Sus estadísticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
 		quemado= new Quemado(this);

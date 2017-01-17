@@ -45,8 +45,8 @@ public class Main {
 		
 		//estas variables guardarán los valores de las acciones a realizar 
 		//del personaje y enemigo, respectivamente
-		int nextActionAux;
-		int nextActionRNG;
+		
+		int nextActionE;
 		
 		//numero de victorias antes de perder
 		int victoryCounter=0;
@@ -54,8 +54,11 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		///// INICIO DEL JUEGO/////////////////
-		System.out.println("Bienvenido al Fight simlator 3000!");
+		
+
+		System.out.println("----------------------------------");
+		System.out.println("----------------------------------");
+		System.out.println("Bienvenido a Console Fighter 3000!");
 		System.out.println("----------------------------------");
 		System.out.println("----------------------------------");
 		
@@ -92,61 +95,32 @@ public class Main {
 			
 			game.imprimirStats(enemigo);
 			enemigo.setVidaActual(enemigo.getVida());
-			/////////////////////
-			
+			//se inicializan los ataques que puede hacer el enemigo
 			Attack1 at1E= new Attack1(enemigo.getClase());
 			Attack2 at2E= new Attack2(enemigo.getClase());
 			Defense1 def1E= new Defense1(enemigo.getClase());
 			Defense2 def2E= new Defense2(enemigo.getClase());
 			
-			System.out.println("comienza un nuevo combate!");
+			System.out.println("Comienza un nuevo combate!");
 			
 			
-			// int para decidir que jugador va antes
+			// int para decidir qué jugador va antes
 			int turno= rng.nextInt(2);
 			if(turno==0)
-				System.out.println("serás el primero en atacar esta partida");
+				System.out.println("Serás el primero en atacar esta partida");
 			else if(turno==1)
-				System.out.println("tu enemigo atacará antes esta partida");
+				System.out.println("Tu enemigo atacará antes esta partida");
 			
 			//bucle de cada combate, mientras uno de los dos no muera(vida<=0), se turnan 
 			// para realizar acciones
 			while(enemigo.getVidaActual()>0 && prot.getVidaActual()>0 )
 				{
-			System.out.println("que acción desea realizar?");
-			System.out.println("1."+ at1.getDescription());
-			System.out.println("2."+ at2.getDescription());
-			System.out.println("3."+ def1.getDescription());
-			System.out.println("4."+ def2.getDescription());
-			do
-			{
-			nextActionAux=sc.nextInt();
-			if(nextActionAux<1 || nextActionAux>4)
-				System.out.println("accion no valida, vuelva a introducir un numero");
-			}while(nextActionAux<1 || nextActionAux>4);
-			
-			switch(nextActionAux)
-			{
-			case 1:
-				nextPAction=at1;
-				break;
-			case 2:
-				nextPAction=at2;
-				break;
-			case 3:
-				nextPAction=def1;
-				break;
-			case 4:
-				nextPAction=def2;
-				break;
-			default:
-				break;
-			}
+				nextPAction=game.actionPlayer(at1, at2, def1, def2);
 			
 			// accion enemiga///
-			nextActionRNG=enemigo.hasStrategy();
-			System.out.println("siguiente ataque enemigo: "+ nextActionRNG);
-			switch(nextActionRNG)
+			nextActionE=enemigo.hasStrategy();
+			
+			switch(nextActionE)
 			{
 			case 0:
 				nextEAction=at1E;
@@ -164,6 +138,7 @@ public class Main {
 				break;
 			}
 			
+			///////// Aplicar los cambios efectuados por las acciones
 			if(turno==0)
 			{
 				System.out.print(nombre + " ");
@@ -202,6 +177,7 @@ public class Main {
 			
 			
 			game.aplicarQuemadura(prot, enemigo);
+			
 			System.out.println();
 			System.out.println("Vida de tu enemigo: "+ enemigo.getVidaActual());
 			System.out.println("Vida de "+ nombre +": "+ prot.getVidaActual());
@@ -209,18 +185,18 @@ public class Main {
 			if(prot.getVidaActual()<=0 )
 				{
 			hasLost=true;
-			System.out.println("has perdido miserablemente");
+			System.out.println("Has perdido...");
 				}
 			
 			}
 			if(enemigo.getVidaActual()<=0)
 			{
-				System.out.println("sorprendemente.. ganaste");
+				System.out.println("Has ganado! Sigue adelante, te espera otro combate!");
 				victoryCounter++;
 				prot.setEstado(prot.getNormal());
 			}
 		}
-		System.out.println("Resultado final: "+ victoryCounter + "victorias");
+		game.puntuacion(victoryCounter);
 		
 		sc.close();
 	}

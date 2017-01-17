@@ -16,9 +16,9 @@ public class WoodsAssassin extends Assassin{
 		defensa = defensaE+Assassin.defensaGen;
 		resistencia = resistenciaE+Assassin.resistenciaGen;
 		clase="Asesino";
-		System.out.println("Su proximo enemigo es un asesino del Bosque! ");
+		System.out.println("Su próximo enemigo es un asesino del Bosque! ");
 		setStrategy(new Defensivo());
-		System.out.println("Sus estadisticas son las siguientes: ");
+		System.out.println("Sus estadísticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
 		quemado= new Quemado(this);

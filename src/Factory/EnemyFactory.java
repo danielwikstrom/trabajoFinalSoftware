@@ -1,13 +1,13 @@
 package Factory;
 
-import Personajes.Enemigo;
+import Personajes.Avatar;
 
 public interface EnemyFactory {
-	public Enemigo createMage();
-	public Enemigo createWarrior();
-	public Enemigo createBomber();
-	public Enemigo createAssassin();
-	public Enemigo createShooter();
+	public Avatar createMage();
+	public Avatar createWarrior();
+	public Avatar createBomber();
+	public Avatar createAssassin();
+	public Avatar createShooter();
 	
 	
 }

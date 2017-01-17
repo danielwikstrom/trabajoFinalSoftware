@@ -9,12 +9,12 @@ public class Quemado implements Estado{
 		this.avatar=avatar;
 	}
 	public void Burn() {
-		System.out.println("ya estaba quemado!");
+		System.out.println("Ya estaba quemado!");
 	}
 
 	
 	public void Sleep() {
-		System.out.println("las quemaduras impiden que se duerma, duele demasiado!");
+		System.out.println("Las quemaduras impiden que se duerma, duele demasiado!");
 	}
 
 	

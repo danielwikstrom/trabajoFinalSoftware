@@ -2,7 +2,7 @@ package Escenarios;
 
 import Clases.*;
 import Factory.EnemyFactory;
-import Personajes.Enemigo;
+import Personajes.Avatar;
 import subClases.*;
 
 public class OceanFact implements EnemyFactory{
@@ -12,38 +12,33 @@ public class OceanFact implements EnemyFactory{
 	int poder=1;
 	int defensa=4;
 	int resistencia=4;
-	public Enemigo createMage() {
+	public Avatar createMage() {
 		Mage enemy= new OceanMage(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Ocean  Mage Created");
 		return enemy;
 	
 	}
 
 	
-	public Enemigo createWarrior() {
+	public Avatar createWarrior() {
 		Warrior enemy= new OceanWarrior(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Ocean Warrior Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createBomber() {
+	public Avatar createBomber() {
 		Bomber enemy=  new OceanBomber(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Ocean Bomber Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createAssassin() {
+	public Avatar createAssassin() {
 		Assassin enemy= new OceanAssassin(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Ocean Assassin Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createShooter() {
+	public Avatar createShooter() {
 		Shooter enemy= new OceanShooter(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Ocean Shooter Created");
 		return enemy;
 	}
 

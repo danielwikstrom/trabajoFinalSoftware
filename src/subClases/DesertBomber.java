@@ -17,9 +17,9 @@ public class DesertBomber extends Bomber{
 		resistencia = resistenciaE+Bomber.resistenciaGen;
 		clase="Bombardero";
 		
-		System.out.println("Su proximo enemigo es un bombardero del desierto! ");
+		System.out.println("Su próximo enemigo es un bombardero del desierto! ");
 		setStrategy(new Agresivo());
-		System.out.println("Sus estadisticas son las siguientes: ");
+		System.out.println("Sus estadísticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
 		quemado= new Quemado(this);

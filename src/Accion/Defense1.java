@@ -12,14 +12,14 @@ public class Defense1 extends Action{
 		
 		if (clase.equals("Mago")) 
 		{
-			description = "Muro de hielo";
+			description = "Muro de Hielo";
 			stateChange="Avoid";
 			isAttack=false;
 			isCura=false;
 		}
 		if (clase.equals("Bombardero")) 
 		{
-			description = "Bomba de humo";
+			description = "Bomba de Humo";
 			stateChange="Avoid";
 			isAttack=false;
 			isCura=false;
@@ -33,7 +33,7 @@ public class Defense1 extends Action{
 		}
 		if (clase.equals("Tirador")) 
 		{
-			description = "Cegar con linterna";
+			description = "Cegar con Linterna";
 			stateChange="Avoid";
 			isAttack=false;
 			isCura=false;

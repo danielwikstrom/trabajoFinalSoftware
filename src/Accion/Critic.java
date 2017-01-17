@@ -10,13 +10,13 @@ public class Critic extends CriticDecorator{
 	}
 	
 	public String getDescription() {
-		return ".... e hizo critico! ha hecho mas daño";
+		return ".... e hizo critico! Ha hecho mas daño";
 	}
 
 	@Override
 	public int getDamage() {
 
-		return action.getDamage()+30;
+		return action.getDamage()+25;
 	}
 
 	

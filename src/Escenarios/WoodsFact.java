@@ -2,7 +2,7 @@ package Escenarios;
 
 import Clases.*;
 import Factory.EnemyFactory;
-import Personajes.Enemigo;
+import Personajes.Avatar;
 import subClases.*;
 
 public class WoodsFact implements EnemyFactory{
@@ -11,38 +11,33 @@ public class WoodsFact implements EnemyFactory{
 	int poder=3;
 	int defensa=3;
 	int resistencia=3;
-	public Enemigo createMage() {
+	public Avatar createMage() {
 		Mage enemy= new WoodsMage(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Woods Mage Created");
 		return enemy;
 	
 	}
 
 	
-	public Enemigo createWarrior() {
+	public Avatar createWarrior() {
 		Warrior enemy= new WoodsWarrior(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Woods Warrior Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createBomber() {
+	public Avatar createBomber() {
 		Bomber enemy= new WoodsBomber(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Woods Bomber Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createAssassin() {
+	public Avatar createAssassin() {
 		Assassin enemy= new WoodsAssassin(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Woods Assassin Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createShooter() {
+	public Avatar createShooter() {
 		Shooter enemy= new WoodsShooter(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Woods Shooter Created");
 		return enemy;
 	}
 }

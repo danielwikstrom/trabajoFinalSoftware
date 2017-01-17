@@ -2,22 +2,24 @@ package Game;
 
 import java.util.Scanner;
 
+import Accion.Action;
 import Personajes.Avatar;
 import Personajes.Personaje;
 
 public class FuncionesJuego {
+	Scanner sc= new Scanner(System.in);
 	public void aplicarQuemadura(Avatar prot, Avatar enemigo)
 	{
 		if (prot.isQuemado)
 		{
 			prot.setVidaActual(prot.getVidaActual()-10);
-			System.out.println("la quemadura le quita 10 de vida al jugador");
+			System.out.println("La quemadura le quita 10 de vida al jugador");
 			
 		}
 		if (enemigo.isQuemado)
 		{
 			enemigo.setVidaActual(enemigo.getVidaActual()-10);
-			System.out.println("la quemadura le quita 10 de vida al enemigo");
+			System.out.println("La quemadura le quita 10 de vida al enemigo");
 		}
 	}
 	public void imprimirStats(Avatar avatar)
@@ -30,11 +32,8 @@ public class FuncionesJuego {
 	System.out.println();
 System.out.println();	
 	}
-	
 	public Avatar crearPersonaje()
 	{
-	@SuppressWarnings("resource")
-	Scanner scan= new Scanner(System.in);
 	int vidaP=0;
 	int fuerzaP=0;
 	int poderP=0;
@@ -59,9 +58,9 @@ System.out.println();
 	System.out.println();
 	do
 	{
-	a=scan.nextInt();
+	a=sc.nextInt();
 	if(a<1 || a> 5)
-		System.out.println("el valor introducido no es valido, vuelva a intentarlo");
+		System.out.println("El valor introducido no es válido, vuelva a intentarlo");
 	}while (a<1 || a> 5);
 	switch(a){
 	case 1:
@@ -108,12 +107,12 @@ System.out.println();
 		break;
 	}
 	System.out.println("Has elegido la clase "+ claseP);
-	System.out.println("tus estadisticas base son las siguientes:");
+	System.out.println("Tus estadisticas base son las siguientes:");
 	System.out.println("Vida: "+vidaP);
 	System.out.println("Fuerza: "+fuerzaP);
 	System.out.println("Defensa: "+defensaP);
 	System.out.println("Poder: "+poderP);
-	System.out.println("resistencia: "+resistenciaP);
+	System.out.println("Resistencia: "+resistenciaP);
 	System.out.println();
 	
 	System.out.println("Ahora puedes asignar 12 puntos extra a los");
@@ -121,7 +120,7 @@ System.out.println();
 	System.out.println("Puntos por repartir: " + puntosRepartir);
 	while(puntosRepartir>0)
 	{
-		System.out.println("Que atributo deseas cambiar?");
+		System.out.println("Que atributo deseas cambiar(1-4)?");
 		
 		System.out.println("1. Fuerza : " + fuerzaP);
 		System.out.println("2. Defensa: "+defensaP);
@@ -129,17 +128,17 @@ System.out.println();
 		System.out.println("4. Resistencia: "+resistenciaP);
 		
 		do{
-		b=scan.nextInt();
+		b=sc.nextInt();
 		if(b<1 || b>4)
-			System.out.println("valor no válido, vuelva a introducir un valor(1-4)");
+			System.out.println("El valor introducido no es válido, vuelva a intentarlo");
 		}while(b<1 || b>4);
 		do
 		{
-			System.out.println("Cuantos puntos deseas asignar:");
+			System.out.println("Cuántos puntos deseas asignar?");
 		
-			aux= scan.nextInt();
+			aux= sc.nextInt();
 			if(aux<0)
-				System.out.println("no introduzca valores negativos");
+				System.out.println("No introduzca valores negativos");
 		}while(aux<0);
 		if(aux>puntosRepartir)
 			aux= puntosRepartir;
@@ -174,5 +173,54 @@ System.out.println();
 	Avatar prot = new Personaje(vidaP, fuerzaP, defensaP, poderP, resistenciaP,claseP);
 	return prot;
 	}
-
+	public Action actionPlayer(Action at1, Action at2, Action def1, Action def2)
+	{
+		int nextActionAux=0;
+		Action nextPAction = null;
+		System.out.println("¿Qué acción deseas realizar(1-4)?");
+		System.out.println("1."+ at1.getDescription());
+		System.out.println("2."+ at2.getDescription());
+		System.out.println("3."+ def1.getDescription());
+		System.out.println("4."+ def2.getDescription());
+		do
+		{
+	nextActionAux=sc.nextInt();
+	if(nextActionAux<1 || nextActionAux>4)
+		System.out.println("Acción no valida, vuelva a introducir un número");
+		}while(nextActionAux<1 || nextActionAux>4);
+	
+		switch(nextActionAux)
+			{
+		case 1:
+			nextPAction=at1;
+			break;
+		case 2:
+			nextPAction=at2;
+			break;
+		case 3:
+			nextPAction=def1;
+			break;
+		case 4:
+			nextPAction=def2;
+			break;
+		default:
+			break;
+			}
+		return nextPAction;
+	}
+	public void puntuacion(int victorias)
+	{
+		if (victorias < 1)
+			System.out.println("No ganaste ni una partida... eres malísimo.");
+		else if(victorias <= 3)
+			System.out.println("Ganaste " + victorias + " veces, seguro que puedes hacerlo mejor.");
+		else if(victorias <= 5)
+			System.out.println(victorias + " victorias ... no está mal.");
+		else if(victorias <= 8)
+			System.out.println("Ya no pareces un novato, con " + victorias + " incluso dirá que no se te da nada mal");
+		else if(victorias <=10)
+			System.out.println("Genial! Ganaste " + victorias + " veces, esto ya es otra cosa!");
+		else 
+			System.out.println("INCREIBLE!!! Ya no hay quién pueda contigo! Eliminaste a " + victorias + " enemigos!");
+	}
 }

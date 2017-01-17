@@ -1,16 +1,16 @@
 package Factory;
 
 
-import Personajes.Enemigo;
+import Personajes.Avatar;
 
 public class EnemyGenerator {
 
 	EnemyFactory ef;
-	Enemigo m;
-	Enemigo w;
-	Enemigo b;
-	Enemigo a;
-	Enemigo s;
+	Avatar m;
+	Avatar w;
+	Avatar b;
+	Avatar a;
+	Avatar s;
 	
 	public EnemyGenerator(EnemyFactory s)
 	{

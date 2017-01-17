@@ -29,10 +29,7 @@ public abstract class Action {
 	{
 		return damage;
 	}
-	public void setDamage(int damage)
-	{
-		this.damage=damage;
-	}
+	
 	public boolean getForce()
 	{
 		return isForce;

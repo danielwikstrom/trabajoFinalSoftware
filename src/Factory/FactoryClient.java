@@ -19,9 +19,9 @@ public class FactoryClient {
 		
 		
 		
-		randEnemy=3;
+		randEnemy=rng.nextInt(5);
 		
-		randWorld=0;
+		randWorld=rng.nextInt(4);
 		//switch para decidir aleatoriamente cual sera el siguiente escenario
 		switch(randWorld)
 		{
@@ -38,7 +38,7 @@ public class FactoryClient {
 			ef = new WoodsFact();
 			break;
 		default:
-			System.out.println("escenario no encontrado");
+			System.out.println("Escenario no encontrado");
 			break;
 		}
 		eg = new EnemyGenerator(ef);
@@ -73,7 +73,7 @@ public class FactoryClient {
 			enemigo=eg.w;
 			break;
 		default:
-			System.out.println("enemigo no encontrado");
+			System.out.println("Enemigo no encontrado");
 			break;
 		}
 		return enemigo;

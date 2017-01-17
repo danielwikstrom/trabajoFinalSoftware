@@ -2,7 +2,7 @@ package Escenarios;
 
 import Clases.*;
 import Factory.EnemyFactory;
-import Personajes.Enemigo;
+import Personajes.Avatar;
 import subClases.*;
 
 public class DesertFact implements EnemyFactory{
@@ -12,38 +12,33 @@ public class DesertFact implements EnemyFactory{
 	int defensa=3;
 	int resistencia=3;
 	
-	public Enemigo createMage() {
+	public Avatar createMage() {
 		Mage enemy= new DesertMage(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Desert Mage Created");
 		return enemy;
 	
 	}
 
 	
-	public Enemigo createWarrior() {
+	public Avatar createWarrior() {
 		Warrior enemy= new DesertWarrior(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Desert Warrior Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createBomber() {
+	public Avatar createBomber() {
 		Bomber enemy= new DesertBomber(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Desert Bomber Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createAssassin() {
+	public Avatar createAssassin() {
 		Assassin enemy= new DesertAssassin(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Desert  Assassin Created");
 		return enemy;
 	}
 
 	
-	public Enemigo createShooter() {
+	public Avatar createShooter() {
 		Shooter enemy= new DesertShooter(vida, fuerza, poder, defensa, resistencia);
-		System.out.println("Desert Shooter Created");
 		return enemy;
 	}
 

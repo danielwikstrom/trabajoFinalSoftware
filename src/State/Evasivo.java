@@ -11,7 +11,7 @@ public class Evasivo implements Estado{
 	}
 	
 	public void Burn() {
-		System.out.println("Ha causado quemaduras! ya no podrá esquivar ataques!");
+		System.out.println("Ha causado quemaduras! Ya no podrá esquivar ataques!");
 		avatar.setEstado(avatar.getQuemado());
 		avatar.isNormal=false;
 		avatar.isQuemado=true;
@@ -21,7 +21,7 @@ public class Evasivo implements Estado{
 
 	
 	public void Sleep() {
-		System.out.println("ha dormido al contrincante! ya no podrá esquivar ataques!");
+		System.out.println("Ha dormido al contrincante! ya no podrá esquivar ataques!");
 		avatar.setEstado(avatar.getDormido());
 		avatar.isNormal=false;
 		avatar.isQuemado=false;
@@ -31,7 +31,7 @@ public class Evasivo implements Estado{
 
 	
 	public void Avoid() {
-		System.out.println("ya estaba en estado evasivo");
+		System.out.println("Ya estaba en estado evasivo");
 		
 	}
 

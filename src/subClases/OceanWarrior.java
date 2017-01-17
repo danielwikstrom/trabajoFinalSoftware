@@ -17,9 +17,9 @@ public class OceanWarrior extends Warrior{
 		resistencia = resistenciaE+Warrior.resistenciaGen;
 		clase="Guerrero";
 
-		System.out.println("Su proximo enemigo es un guerrero del Oceano! ");
+		System.out.println("Su próximo enemigo es un guerrero del Oceano! ");
 		setStrategy(new Agresivo());
-		System.out.println("Sus estadisticas son las siguientes: ");
+		System.out.println("Sus estadísticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
 		quemado= new Quemado(this);

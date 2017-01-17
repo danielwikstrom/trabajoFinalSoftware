@@ -13,7 +13,7 @@ public class Attack1 extends Action{
 		
 		if (clase.equals("Mago")) 
 		{
-			description = "Rayo de luz";
+			description = "Rayo de Luz";
 			stateChange="Burn";
 			damage= 30;
 			isForce=false;

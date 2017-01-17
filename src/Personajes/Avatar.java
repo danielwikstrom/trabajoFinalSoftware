@@ -4,6 +4,10 @@ import State.Estado;
 import Strategy.Strategy;
 
 public abstract class Avatar {
+	
+	//Clase padre de todos lo personajes, tanto el jugador como los enemigos.
+
+	
 	//estadísticas de todos los personajes
 	public int vida;
 	public int fuerza;
@@ -13,13 +17,14 @@ public abstract class Avatar {
 	public int vidaActual=vida;
 	public String clase;
 	
-	
+	// instancias de los distintos tipos de estado
 	public Estado state;
 	public Estado dormido;
 	public Estado quemado;
 	public Estado evasivo;
 	public Estado normal;
 	
+	// estos booleanos los usamos para saber si un personaje esta en un estado
 	public boolean isNormal;
 	public boolean isQuemado;
 	public boolean isDormido;
@@ -92,6 +97,7 @@ public abstract class Avatar {
 	{
 		state.Sleep();
 	}
+	
 	
 	public int hasStrategy()
 	{
