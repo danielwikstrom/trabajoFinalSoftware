@@ -5,6 +5,7 @@ import State.Dormido;
 import State.Evasivo;
 import State.Normal;
 import State.Quemado;
+import Strategy.Defensivo;
 
 public class WoodsBomber extends Bomber{
 	public WoodsBomber(int vidaE, int fuerzaE, int poderE, int defensaE, int resistenciaE){
@@ -16,6 +17,7 @@ public class WoodsBomber extends Bomber{
 		resistencia = resistenciaE+Bomber.resistenciaGen;
 		clase="Bombardero";
 		System.out.println("Su proximo enemigo es un bombardero del Bosque! ");
+		setStrategy(new Defensivo());
 		System.out.println("Sus estadisticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
@@ -29,5 +31,7 @@ public class WoodsBomber extends Bomber{
 		isQuemado=false;
 		isDormido=false;
 		isEvasivo=false;
+		
+		
 	}
 }

@@ -5,6 +5,7 @@ import State.Dormido;
 import State.Evasivo;
 import State.Normal;
 import State.Quemado;
+import Strategy.Defensivo;
 
 
 public class SpaceAssassin extends  Assassin{
@@ -17,6 +18,7 @@ public class SpaceAssassin extends  Assassin{
 		resistencia = resistenciaE+Assassin.resistenciaGen;
 		clase="Asesino";
 		System.out.println("Su proximo enemigo es un asesino del Espacio! ");
+		setStrategy(new Defensivo());
 		System.out.println("Sus estadisticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
@@ -30,5 +32,7 @@ public class SpaceAssassin extends  Assassin{
 		isQuemado=false;
 		isDormido=false;
 		isEvasivo=false;
+		
+		
 	}
 }

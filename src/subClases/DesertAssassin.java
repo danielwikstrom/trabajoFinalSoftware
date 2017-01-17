@@ -5,6 +5,7 @@ import State.Dormido;
 import State.Evasivo;
 import State.Normal;
 import State.Quemado;
+import Strategy.Agresivo;
 
 public class DesertAssassin extends Assassin{
 	public DesertAssassin(int vidaE, int fuerzaE, int poderE, int defensaE, int resistenciaE){
@@ -17,6 +18,7 @@ public class DesertAssassin extends Assassin{
 		clase="Asesino";
 		
 		System.out.println("Su proximo enemigo es un asesino del desierto! ");
+		setStrategy(new Agresivo());
 		System.out.println("Sus estadisticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
@@ -30,5 +32,6 @@ public class DesertAssassin extends Assassin{
 		isQuemado=false;
 		isDormido=false;
 		isEvasivo=false;
+		
 	}
 }

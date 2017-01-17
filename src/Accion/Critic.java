@@ -16,7 +16,7 @@ public class Critic extends CriticDecorator{
 	@Override
 	public int getDamage() {
 
-		return action.getDamage()+65;
+		return action.getDamage()+30;
 	}
 
 	

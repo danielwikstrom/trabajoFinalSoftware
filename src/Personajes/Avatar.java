@@ -1,6 +1,7 @@
 package Personajes;
 
 import State.Estado;
+import Strategy.Strategy;
 
 public abstract class Avatar {
 	//estadísticas de todos los personajes
@@ -23,6 +24,9 @@ public abstract class Avatar {
 	public boolean isQuemado;
 	public boolean isDormido;
 	public boolean isEvasivo;
+	
+	Strategy strategy;
+	 
 	
 	public  int getVida() {
 		return vida;
@@ -87,5 +91,15 @@ public abstract class Avatar {
 	public void Dormir()
 	{
 		state.Sleep();
+	}
+	
+	public int hasStrategy()
+	{
+		
+		return strategy.nextAttack();
+	}
+	public void setStrategy(Strategy strategy)
+	{
+		this.strategy=strategy;
 	}
 }

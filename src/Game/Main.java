@@ -15,24 +15,30 @@ public class Main {
 		FuncionesJuego game= new FuncionesJuego();
 		
 		///VARIABLES//////////////
-		int vidaP=0;
-		int fuerzaP=0;
-		int poderP=0;
-		int resistenciaP=0;
-		int defensaP=0;
+		
 		String nombre;
 		String claseP=null;
 		
-		//puntos que se pueden repartir durante la creación del personaje
-		int puntosRepartir=12;
+		
 		
 		//booleano que muestra si el jugador ha perdido o no. True indica que ha perdido
 		boolean hasLost=false;
 		
+		Avatar prot=null;
+		Avatar enemigo=null;
+		
+		//estas variables guardaran la siguiente accion a realizar del jugador y el enemigo
+		Action nextPAction = null;
+		Action nextEAction = null;
+		
+		
+		//inicializamos la factoria de enemigos
+		EnemyFactory ef=null;
+		EnemyGenerator eg=null;
 		//variables auxiliares
-		int a;
-		int b;
-		int aux=0;
+		
+		
+		
 		
 		//semilla random usada para la elección del mundo y enemigo
 		Random rng= new Random();
@@ -56,144 +62,19 @@ public class Main {
 		
 		System.out.println("Introduzca el nombre de su personaje: ");
 		nombre=sc.nextLine();
-	///////// Fase Creacion de personaje////////
-		System.out.println("Escoga la clase de su personaje de entre  ");
-		System.out.println("Las siguientes (1-5): ");
-		System.out.println("1.Guerrero ");
-		System.out.println("2.Mago ");
-		System.out.println("3.Bombardero ");
-		System.out.println("4.Tirador ");
-		System.out.println("5.Asesino ");
-		do
-		{
-		a=sc.nextInt();
-		if(a<1 || a> 5)
-			System.out.println("el valor introducido no es valido, vuelva a intentarlo");
-		}while (a<1 || a> 5);
-		switch(a){
-		case 1:
-			claseP="Guerrero";
-			vidaP=75;
-			fuerzaP=1;
-			poderP=0;
-			defensaP=2;
-			resistenciaP=1;
-			break;
-		case 2:
-			claseP="Mago";
-			vidaP=55;
-			fuerzaP=0;
-			poderP=3;
-			defensaP=1;
-			resistenciaP=0;
-			break;
-		case 3:
-			claseP="Bombardero";
-			vidaP=65;
-			fuerzaP=2;
-			poderP=2;
-			defensaP=0;
-			resistenciaP=0;
-			break;
-		case 4:
-			claseP="Tirador";
-			vidaP=55;
-			fuerzaP=2;
-			poderP=0;
-			defensaP=1;
-			resistenciaP=1;
-			break;
-		case 5:
-			claseP="Asesino";
-			vidaP=50;
-			fuerzaP=3;
-			poderP=0;
-			defensaP=1;
-			resistenciaP=0;
-			break;
-		default:
-			break;
-		}
-		System.out.println("Has elegido la clase "+ claseP);
-		System.out.println("tus estadisticas base son las siguientes:");
-		System.out.println("Vida: "+vidaP);
-		System.out.println("Fuerza: "+fuerzaP);
-		System.out.println("Defensa: "+defensaP);
-		System.out.println("Poder: "+poderP);
-		System.out.println("resistencia: "+resistenciaP);
-		
-		System.out.println("Ahora puedes asignar 12 puntos extra a los");
-		System.out.println("atributos que quieras(excepto la vida)");
-		System.out.println("Puntos por repartir: " + puntosRepartir);
-		while(puntosRepartir>0)
-		{
-			System.out.println("Que atributo deseas cambiar?");
-			
-			System.out.println("1. Fuerza : " + fuerzaP);
-			System.out.println("2. Defensa: "+defensaP);
-			System.out.println("3. Poder: "+poderP);
-			System.out.println("4. Resistencia: "+resistenciaP);
-			do{
-			b=sc.nextInt();
-			if(b<1 || b>4)
-				System.out.println("valor no válido, vuelva a introducir un valor(1-4)");
-			}while(b<1 || b>4);
-			do
-			{
-				System.out.println("Cuantos puntos deseas asignar:");
-			
-				aux= sc.nextInt();
-				if(aux<0)
-					System.out.println("no introduzca valores negativos");
-			}while(aux<0);
-			if(aux>puntosRepartir)
-				aux= puntosRepartir;
-			switch(b){
-			case 1:
-				
-				fuerzaP+=aux;
-				break;
-			case 2:
-				
-				defensaP+= aux;
-				break;
-			case 3:
-				
-				poderP+= aux;
-				break;
-			case 4:
-				
-				resistenciaP= aux;
-				break;
-			default:
-				break;
-				
-			}
-			puntosRepartir-=aux;
-			System.out.println("Puntos por repartir: " + puntosRepartir);
-			
-			
-		}
-		
-		Avatar prot = new Personaje(vidaP, fuerzaP, defensaP, poderP, resistenciaP,claseP);
+	
+		//creamos al personaje
+		prot=game.crearPersonaje();
 		
 		System.out.println("Nombre: "+nombre);
 		game.imprimirStats(prot);
 		////
+		claseP=prot.getClase();
 		Attack1 at1= new Attack1(claseP);
 		Attack2 at2= new Attack2(claseP);
 		Defense1 def1= new Defense1(claseP);
 		Defense2 def2= new Defense2(claseP);
 		
-		//// Final fase creacion de personaje
-		Avatar enemigo=null;
-		Action nextPAction = null;
-		Action nextEAction = null;
-		
-		
-		//inicializamos la factoria de enemigos
-		EnemyFactory ef=null;
-		EnemyGenerator eg=null;
 		
 		
 		//inicializamos la instacnia unica del calculador de batalla
@@ -206,7 +87,8 @@ public class Main {
 		{
 			
 			enemigo=factory.createRandomEnemy(ef,eg);
-			prot.setVidaActual(vidaP);
+			
+			prot.setVidaActual(prot.getVida());
 			
 			game.imprimirStats(enemigo);
 			enemigo.setVidaActual(enemigo.getVida());
@@ -260,11 +142,10 @@ public class Main {
 			default:
 				break;
 			}
-			//////////////////////////////////////////////////
-			//LA ACCION SE HARA SEGUN LA ESTRATEGIA, ESTO ES TEMPORAL
 			
-			nextActionRNG=rng.nextInt(4);
-			
+			// accion enemiga///
+			nextActionRNG=enemigo.hasStrategy();
+			System.out.println("siguiente ataque enemigo: "+ nextActionRNG);
 			switch(nextActionRNG)
 			{
 			case 0:
@@ -341,7 +222,7 @@ public class Main {
 		}
 		System.out.println("Resultado final: "+ victoryCounter + "victorias");
 		
-		
+		sc.close();
 	}
 
 }

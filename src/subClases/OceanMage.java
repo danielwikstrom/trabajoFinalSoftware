@@ -5,6 +5,7 @@ import State.Dormido;
 import State.Evasivo;
 import State.Normal;
 import State.Quemado;
+import Strategy.Agresivo;
 
 public class OceanMage extends Mage{
 	public OceanMage(int vidaE, int fuerzaE, int poderE, int defensaE, int resistenciaE){
@@ -17,6 +18,7 @@ public class OceanMage extends Mage{
 		clase="Mago";
 
 		System.out.println("Su proximo enemigo es un mago del Oceano! ");
+		setStrategy(new Agresivo());
 		System.out.println("Sus estadisticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
@@ -30,5 +32,7 @@ public class OceanMage extends Mage{
 		isQuemado=false;
 		isDormido=false;
 		isEvasivo=false;
+		
+		
 	}
 }

@@ -32,7 +32,7 @@ public class Calculator {
 		if(!origen.isDormido)
 		{
 			Random rng= new Random();
-			int dar=rng.nextInt(1);
+			int dar=rng.nextInt(2);
 			if(action.getState().equals("Avoid"))
 				origen.Evadir();
 				

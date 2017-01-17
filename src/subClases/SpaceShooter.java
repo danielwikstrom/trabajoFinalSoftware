@@ -5,6 +5,7 @@ import State.Dormido;
 import State.Evasivo;
 import State.Normal;
 import State.Quemado;
+import Strategy.Defensivo;
 
 
 public class SpaceShooter extends  Shooter{
@@ -18,6 +19,7 @@ public class SpaceShooter extends  Shooter{
 		clase="Tirador";
 
 		System.out.println("Su proximo enemigo es un tirador del desierto! ");
+		setStrategy(new Defensivo());
 		System.out.println("Sus estadisticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
@@ -31,5 +33,7 @@ public class SpaceShooter extends  Shooter{
 		isQuemado=false;
 		isDormido=false;
 		isEvasivo=false;
+		
+		
 	}
 }

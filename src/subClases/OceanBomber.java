@@ -5,6 +5,7 @@ import State.Dormido;
 import State.Evasivo;
 import State.Normal;
 import State.Quemado;
+import Strategy.Agresivo;
 
 public class OceanBomber extends Bomber{
 	public OceanBomber(int vidaE, int fuerzaE, int poderE, int defensaE, int resistenciaE){
@@ -16,6 +17,7 @@ public class OceanBomber extends Bomber{
 		resistencia = resistenciaE+Bomber.resistenciaGen;
 		clase="Bombardero";
 		System.out.println("Su proximo enemigo es un bombardero del Oceano! ");
+		setStrategy(new Agresivo());
 		System.out.println("Sus estadisticas son las siguientes: ");
 		
 		dormido= new Dormido(this);
@@ -29,5 +31,6 @@ public class OceanBomber extends Bomber{
 		isQuemado=false;
 		isDormido=false;
 		isEvasivo=false;
+		
 	}
 }

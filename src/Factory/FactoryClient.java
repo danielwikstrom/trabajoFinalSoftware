@@ -19,9 +19,9 @@ public class FactoryClient {
 		
 		
 		
-		randEnemy=rng.nextInt(5);
+		randEnemy=3;
 		
-		randWorld=rng.nextInt(4);
+		randWorld=0;
 		//switch para decidir aleatoriamente cual sera el siguiente escenario
 		switch(randWorld)
 		{
